@@ -9,7 +9,7 @@ public class Main {
         Grid answer = new Grid();
         answer.hiddenBoard();
 
-
+        //add
 
     }
 }
