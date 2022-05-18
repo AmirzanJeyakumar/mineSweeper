@@ -21,6 +21,10 @@ public class Grid {
 
     }
 
+    public int getRows() {
+        return rows;
+    }
+
     public void printBoard(int [][] board) {
         for (int[] ints : board) {
             for (int anInt : ints) {
