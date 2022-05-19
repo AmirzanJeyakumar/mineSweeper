@@ -1,123 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Grid.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mineSweeper</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Grid.java</span></div><h1>Grid.java</h1><pre class="source lang-java linenums">import java.util.Arrays;
 import java.util.Random;
+
 public class Grid {
 
 
     final int rows;
     final int columns;
     final int numOfMines;
-    private final int[][] visibleBoard;
-    private final int[][] hiddenBoard;
-
-<span class="fc" id="L12">    Random random = new Random();</span>
+    private int[][] visibleBoard;
+    private int[][] hiddenBoard;
 
 
-<span class="fc" id="L15">    public Grid() {</span>
-<span class="fc" id="L16">        rows = 14;</span>
-<span class="fc" id="L17">        columns = 18;</span>
-<span class="fc" id="L18">        numOfMines = 40;</span>
-<span class="fc" id="L19">        visibleBoard = new int[rows][columns];</span>
-<span class="fc" id="L20">        hiddenBoard = new int[rows][columns];</span>
 
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L15">    Random random = new Random();</span>
 
-    public int getRows() {
-<span class="fc" id="L25">        return rows;</span>
-    }
 
+<span class="fc" id="L18">    public Grid() {</span>
+<span class="fc" id="L19">        rows = 10;</span>
+<span class="fc" id="L20">        columns = 10;</span>
+<span class="fc" id="L21">        numOfMines = 20;</span>
+<span class="fc" id="L22">        visibleBoard = new int[rows][columns];</span>
+<span class="fc" id="L23">        hiddenBoard = new int[rows][columns];</span>
+
+<span class="fc" id="L25">    }</span>
     public void printBoard(int [][] board) {
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        for (int[] ints : board) {</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">            for (int anInt : ints) {</span>
-<span class="nc" id="L31">                System.out.print(&quot;   &quot; + anInt);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (int[] ints : board) {</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            for (int anInt : ints) {</span>
+<span class="nc" id="L29">                System.out.print(&quot;   &quot; + anInt);</span>
             }
-<span class="nc" id="L33">            System.out.println(&quot;\n&quot;);</span>
+<span class="nc" id="L31">            System.out.println(&quot;\n&quot;);</span>
         }
-<span class="nc" id="L35">    }</span>
-
+<span class="nc" id="L33">    }</span>
     public void randomMines (int [][] board) {
-<span class="nc" id="L38">        int occupiedSpots = 0;</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        while (occupiedSpots &lt; numOfMines) {</span>
-<span class="nc" id="L40">            int i = random.nextInt(board.length);</span>
-<span class="nc" id="L41">            int j = random.nextInt(board[i].length);</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">            if (board[i][j] == -1) {</span>
-<span class="nc" id="L43">                board[i][j] = 9;</span>
-<span class="nc" id="L44">                occupiedSpots++;</span>
+<span class="nc" id="L35">        int occupiedSpots = 0;</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        while (occupiedSpots &lt; numOfMines) {</span>
+<span class="nc" id="L37">            int i = random.nextInt(board.length);</span>
+<span class="nc" id="L38">            int j = random.nextInt(board[i].length);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (board[i][j] == -1) {</span>
+<span class="nc" id="L40">                board[i][j] = 9;</span>
+<span class="nc" id="L41">                occupiedSpots++;</span>
             }
-<span class="nc" id="L46">        }</span>
-<span class="nc" id="L47">    }</span>
-
+<span class="nc" id="L43">        }</span>
+<span class="nc" id="L44">    }</span>
     public void defaultValues (int [][] board) {
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        for (int[] ints : board) {</span>
-<span class="nc" id="L51">            Arrays.fill(ints, -1);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (int[] ints : board) {</span>
+<span class="nc" id="L47">            Arrays.fill(ints, -1);</span>
         }
-<span class="nc" id="L53">    }</span>
-
+<span class="nc" id="L49">    }</span>
     public void calcValues (int [][] board) {
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        for(int i = 0; i &lt; board.length; i++) {</span>
-<span class="nc bnc" id="L57" title="All 2 branches missed.">            for (int j = 0; j &lt; board[i].length; j++) {</span>
-<span class="nc" id="L58">                int mineCount = 0;</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">                if (board[i][j] != 9) {</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        for(int i = 0; i &lt; board.length; i++) {</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            for (int j = 0; j &lt; board[i].length; j++) {</span>
+<span class="nc" id="L53">                int mineCount = 0;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">                if (board[i][j] != 9) {</span>
 
-<span class="nc bnc" id="L61" title="All 2 branches missed.">                    if ((j - 1) != -1) {</span>
-<span class="nc bnc" id="L62" title="All 2 branches missed.">                        if (board[i][j - 1] == 9) {</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">                    if ((j - 1) != -1) {</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                        if (board[i][j - 1] == 9) {</span>
+<span class="nc" id="L58">                            mineCount += 1;</span>
+                        }
+                    }
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                    if ((i - 1) != -1) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                        if (board[i - 1][j] == 9) {</span>
 <span class="nc" id="L63">                            mineCount += 1;</span>
                         }
                     }
-<span class="nc bnc" id="L66" title="All 2 branches missed.">                    if ((i - 1) != -1) {</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">                        if (board[i - 1][j] == 9) {</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">                    if ((i + 1) != rows) {</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">                        if (board[i + 1][j] == 9) {</span>
 <span class="nc" id="L68">                            mineCount += 1;</span>
                         }
                     }
-<span class="nc bnc" id="L71" title="All 2 branches missed.">                    if ((i + 1) != rows) {</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">                        if (board[i + 1][j] == 9) {</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">                    if ((j + 1) != columns) {</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">                        if (board[i][j + 1] == 9) {</span>
 <span class="nc" id="L73">                            mineCount += 1;</span>
                         }
                     }
-<span class="nc bnc" id="L76" title="All 2 branches missed.">                    if ((j + 1) != columns) {</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">                        if (board[i][j + 1] == 9) {</span>
+<span class="nc bnc" id="L76" title="All 4 branches missed.">                    if ((i - 1) != -1 &amp;&amp; (j - 1) != -1) {</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">                        if (board[i - 1][j - 1] == 9) {</span>
 <span class="nc" id="L78">                            mineCount += 1;</span>
                         }
                     }
-<span class="nc bnc" id="L81" title="All 4 branches missed.">                    if ((i - 1) != -1 &amp;&amp; (j - 1) != -1) {</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">                        if (board[i - 1][j - 1] == 9) {</span>
+<span class="nc bnc" id="L81" title="All 4 branches missed.">                    if ((i - 1) != -1 &amp;&amp; (j + 1) != columns) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">                        if (board[i - 1][j + 1] == 9) {</span>
 <span class="nc" id="L83">                            mineCount += 1;</span>
                         }
                     }
-<span class="nc bnc" id="L86" title="All 4 branches missed.">                    if ((i - 1) != -1 &amp;&amp; (j + 1) != columns) {</span>
-<span class="nc bnc" id="L87" title="All 2 branches missed.">                        if (board[i - 1][j + 1] == 9) {</span>
-<span class="nc" id="L88">                            mineCount += 1;</span>
+
+<span class="nc bnc" id="L87" title="All 4 branches missed.">                    if ((i + 1) != rows &amp;&amp; (j + 1) != columns) {</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">                        if (board[i + 1][j + 1] == 9) {</span>
+<span class="nc" id="L89">                            mineCount += 1;</span>
                         }
                     }
-
-<span class="nc bnc" id="L92" title="All 4 branches missed.">                    if ((i + 1) != rows &amp;&amp; (j + 1) != columns) {</span>
-<span class="nc bnc" id="L93" title="All 2 branches missed.">                        if (board[i + 1][j + 1] == 9) {</span>
+<span class="nc bnc" id="L92" title="All 4 branches missed.">                    if ((i + 1) != rows &amp;&amp; (j - 1) != -1) {</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                        if (board[i + 1][j - 1] == 9) {</span>
 <span class="nc" id="L94">                            mineCount += 1;</span>
                         }
                     }
-<span class="nc bnc" id="L97" title="All 4 branches missed.">                    if ((i + 1) != rows &amp;&amp; (j - 1) != -1) {</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">                        if (board[i + 1][j - 1] == 9) {</span>
-<span class="nc" id="L99">                            mineCount += 1;</span>
-                        }
-                    }
-<span class="nc" id="L102">                    board[i][j] = mineCount;</span>
+<span class="nc" id="L97">                    board[i][j] = mineCount;</span>
                 }
             }
         }
-<span class="nc" id="L106">    }</span>
+<span class="nc" id="L101">    }</span>
 
-    public void visibleBoard() {
+    public void setVisibleBoard(int [][] newBoard) {
+<span class="nc" id="L104">        visibleBoard = newBoard;</span>
+<span class="nc" id="L105">    }</span>
 
-<span class="nc" id="L110">        defaultValues(visibleBoard);</span>
-<span class="nc" id="L111">        printBoard(visibleBoard);</span>
-<span class="nc" id="L112">    }</span>
+    public void setHiddenBoard(int [][] newBoard) {
+<span class="nc" id="L108">        hiddenBoard = newBoard;</span>
+<span class="nc" id="L109">    }</span>
 
-    public void hiddenBoard() {
+    public int getRows() {
+<span class="fc" id="L112">        return rows;</span>
+    }
 
-<span class="nc" id="L116">        defaultValues(hiddenBoard);</span>
-<span class="nc" id="L117">        randomMines(hiddenBoard);</span>
-<span class="nc" id="L118">        calcValues(hiddenBoard);</span>
-<span class="nc" id="L119">        printBoard(hiddenBoard);</span>
-<span class="nc" id="L120">    }</span>
+    public int getColumns() {
+<span class="nc" id="L116">        return columns;</span>
+    }
+
+    public int[][] getVisibleBoard() {
+<span class="nc" id="L120">        return visibleBoard;</span>
+    }
+    public int[][] getHiddenBoard() {
+<span class="nc" id="L123">        return hiddenBoard;</span>
+    }
+
+    public void createVisibleBoard() {
+<span class="nc" id="L127">        defaultValues(visibleBoard);</span>
+<span class="nc" id="L128">        setVisibleBoard(visibleBoard);</span>
+<span class="nc" id="L129">    }</span>
+
+    public void createHiddenBoard() {
+<span class="nc" id="L132">        defaultValues(hiddenBoard);</span>
+<span class="nc" id="L133">        randomMines(hiddenBoard);</span>
+<span class="nc" id="L134">        calcValues(hiddenBoard);</span>
+<span class="nc" id="L135">        setHiddenBoard(hiddenBoard);</span>
+<span class="nc" id="L136">    }</span>
+    public void matchXY(int x, int y) {
+<span class="nc" id="L138">        int status = 0;</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        if (getHiddenBoard()[x-1][y-1]==9) {</span>
+<span class="nc" id="L140">            System.out.println(&quot;GAME OVER!&quot;);</span>
+<span class="nc" id="L141">            System.exit(status);</span>
+        } else {
+<span class="nc" id="L143">            getVisibleBoard()[x-1][y-1] = getHiddenBoard()[x-1][y-1];</span>
+<span class="nc" id="L144">            printBoard(getVisibleBoard());</span>
+        }
+<span class="nc" id="L146">        int uncoveredTile = 0;</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        for (int [] ints: getVisibleBoard()) {</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            for (int anInt : ints) {</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">                if (anInt != -1) {</span>
+<span class="nc" id="L150">                    uncoveredTile++;</span>
+                }
+            }
+        }
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (uncoveredTile == rows*columns) {</span>
+<span class="nc" id="L155">            System.out.println(&quot;Congrats! You Won&quot;);</span>
+<span class="nc" id="L156">            System.exit(status);</span>
+        }
+
+<span class="nc" id="L159">    }</span>
+
+
+
+
 }
 
 
