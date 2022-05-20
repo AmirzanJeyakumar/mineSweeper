@@ -8,7 +8,7 @@ public class gridTest {
     public void testGrid() {
 
         Grid test = new Grid();
-        Assertions.assertEquals(10,test.getRows(),"Incorrect row number");
+        Assertions.assertEquals(5,test.getRows(),"Incorrect row number");
 
 }
 }

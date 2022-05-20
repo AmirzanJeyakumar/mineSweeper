@@ -25,12 +25,16 @@
 
 
         while (true) {
-<span class="nc" id="L28">            System.out.println(&quot;Choose a tile and input the X and Y coordinates&quot;);</span>
-<span class="nc" id="L29">            int y = scanner.nextInt();</span>
-<span class="nc" id="L30">            int x = scanner.nextInt();</span>
-<span class="nc" id="L31">            game.matchXY(x,y);</span>
+<span class="nc" id="L28">            System.out.println(&quot;---------------------------------------------------&quot;);</span>
+<span class="nc" id="L29">            System.out.println(&quot;Choose a tile and input the X and Y coordinates&quot;);</span>
+<span class="nc" id="L30">            System.out.println(&quot;'s = safe' or 'm = mine'?&quot;);</span>
 
-<span class="nc" id="L33">        }</span>
+<span class="nc" id="L32">            int y = scanner.nextInt();</span>
+<span class="nc" id="L33">            int x = scanner.nextInt();</span>
+<span class="nc" id="L34">            String marker = scanner.next();</span>
+<span class="nc" id="L35">            game.matchXY(x,y,marker);</span>
+
+<span class="nc" id="L37">        }</span>
 
 
 

@@ -25,10 +25,14 @@ public class Main {
 
 
         while (true) {
+            System.out.println("---------------------------------------------------");
             System.out.println("Choose a tile and input the X and Y coordinates");
+            System.out.println("'s = safe' or 'm = mine'?");
+
             int y = scanner.nextInt();
             int x = scanner.nextInt();
-            game.matchXY(x,y);
+            String marker = scanner.next();
+            game.matchXY(x,y,marker);
 
         }
 
