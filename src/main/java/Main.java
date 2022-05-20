@@ -19,7 +19,8 @@ public class Main {
         game.createHiddenBoard();
 
 
-        game.printBoard(game.getHiddenBoard()); // check everything matches
+        // game.printBoard(game.getHiddenBoard());
+        // check everything matches
         System.out.println("---------------------------------------------------");
         game.printBoard(game.getVisibleBoard());
 

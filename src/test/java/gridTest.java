@@ -9,6 +9,9 @@ public class gridTest {
 
         Grid test = new Grid();
         Assertions.assertEquals(5,test.getRows(),"Incorrect row number");
+        Assertions.assertEquals(5,test.getColumns(),"Incorrect column number");
+        Assertions.assertEquals(5,test.getNumOfMines(),"Incorrect number of mines");
 
+        
 }
 }

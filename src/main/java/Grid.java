@@ -171,28 +171,20 @@ public class Grid {
         int a = x;
         int b = y;
 
-
         if ((getHiddenBoard()[x-1][y-1]==9) && marker.equals("s") ) {
-
             System.out.println("GAME OVER!");
             System.exit(0);
         } else if ((getHiddenBoard()[x-1][y-1]==9) && (marker.equals("m"))) {
-
             getVisibleBoard()[x-1][y-1] = 9;
             printBoard(getVisibleBoard());
-
         } else if ((getHiddenBoard()[x-1][y-1]==0) && marker.equals("s")) {
-
             revealBlanks(a,b);
             getVisibleBoard()[x-1][y-1] = getHiddenBoard()[x-1][y-1];
             printBoard(getVisibleBoard());
-
         } else {
-
             getVisibleBoard()[x-1][y-1] = getHiddenBoard()[x-1][y-1];
             printBoard(getVisibleBoard());
         }
-
 
         int uncoveredTile = 0;
         for (int [] ints: getVisibleBoard()) {
